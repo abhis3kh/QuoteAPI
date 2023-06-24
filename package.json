@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "API Service for providing quote",
+  "main": "server.js",
+  "author": "Abhisekh Mukherjee",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^2.0.22",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "env": "^0.0.2",
+    "express": "^4.18.2",
+    "mongodb": "^5..0"
+  }
+}
