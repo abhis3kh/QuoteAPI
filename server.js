@@ -77,3 +77,13 @@ app.get('/quotes/:field', async (req, response) => {
   const arrayDocs = await allFieldDocuments.toArray();
   response.json(arrayDocs);
 });
+
+//? POST /quotes - This endpoint allows users to add new quotes to your database. Users can submit the quote content, author, and any relevant tags or categories. It can be used to create a collection of user-generated quotes or to allow administrators to add new quotes to the database.
+
+//?DELETE /quotes/:id - This endpoint allows users to delete a quote from the database using its ID. It can be helpful if you want to provide functionality for removing quotes that are no longer relevant or deemed inappropriate.
+
+//?PUT /quotes/:id - This endpoint enables users to update an existing quote by its ID. It can be useful if you want to allow users or administrators to edit the content, author, or other details of a quote.
+
+//?GET /quotes/search?q=searchTerm - This endpoint allows users to search for quotes based on a specific keyword or search term. It can be useful for users who want to find quotes related to a particular topic or theme.
+
+//?GET /quotes/random?count=n - This endpoint fetches a specified number (n) of random quotes from your database. It can be used for displaying a set of random quotes on a website, app, or for any scenario where users would like to discover multiple random quotes at once.

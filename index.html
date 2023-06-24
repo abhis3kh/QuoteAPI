@@ -5,13 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quote API</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin-top: 40px;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
   </head>
   <body>
-    <>
-      One Stop API Service to get Quote for Motivational. (will be adding new as
-      time comes)
+    <h1>Quote API</h1>
 
-      <p>Hi this is simple API - HIT /quotes for getting all quotes available on server. Have a nice day <3 </p>
-    </h1>
+    <!-- Include your converted Markdown content here -->
+    <div id="markdown-content">
+      <!-- Your Markdown content goes here -->
+    </div>
+
+    <script>
+      // Convert Markdown to HTML and update the content
+      var markdownContent = `
+# Welcome to the Quote API
+
+One Stop API Service to get Quote for Motivational. (will be adding new as time comes)
+
+## Endpoints
+
+- **GET /quote**: Fetches a random quote.
+- **GET /quote/:field**: Fetches a random quote based on the specified field.
+- **GET /quotes**: Fetches all quotes present in the database.
+- **GET /quotes/:field**: Fetches all quotes that correspond to the specified field.
+
+Hi, this is a simple API. Let me know if you want me to add something. 
+
+For more information do visit the Github Repo : [GitHub](https://github.com/abhis3kh/QuoteAPI)
+
+Have a nice day! ❤️
+`;
+
+      // Convert Markdown to HTML
+      var converter = new showdown.Converter();
+      var htmlContent = converter.makeHtml(markdownContent);
+
+      // Update the content in the HTML document
+      document.getElementById('markdown-content').innerHTML = htmlContent;
+    </script>
   </body>
 </html>
