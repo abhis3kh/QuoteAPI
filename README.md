@@ -52,6 +52,8 @@ The Quote API provides the following endpoints:
 - **GET /quotes**: Fetches all quotes present in the database.
 - **GET /quotes/:field**: Fetches all quotes that correspond to the specified field.
 
+- **POST /quote**: Creates a quote in the database.
+
 ## Usage
 
 ### Fetch a Random Quote
@@ -69,6 +71,20 @@ Send a GET request to `/quotes` to retrieve all quotes present in the database. 
 ### Fetch All Quotes by Field
 
 Send a GET request to `/quotes/:field`, where `:field` represents the field value (e.g., `motivational`, `wisdom`, etc.). The API will return an array of all quotes that correspond to the specified field.
+
+### Creates a new Quote
+
+Send a POST request to `/quotes` with below input and it will create the document in MongoDB. If sucess will throw an message "New Quote added".
+
+#### Required Parameters :
+
+```
+{
+"quote": "Example quote",
+"quotedBy": "John Doe",
+"field": "Example field"
+}
+```
 
 ## Contribution
 

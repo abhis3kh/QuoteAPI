@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-
 const URI = process.env.MONGODB_URI;
 
 const app = express();
+app.use(express.json());
 
 // CORS is enabled for all origins
 app.use(cors());
@@ -79,6 +79,25 @@ app.get('/quotes/:field', async (req, response) => {
 });
 
 //? POST /quotes - This endpoint allows users to add new quotes to your database. Users can submit the quote content, author, and any relevant tags or categories. It can be used to create a collection of user-generated quotes or to allow administrators to add new quotes to the database.
+
+app.post('/quote', (req, res) => {
+  const { quote, quotedBy, field } = req.body;
+  const newQuote = {
+    quote,
+    quotedBy,
+    field,
+  };
+  quotes.insertOne(newQuote, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result.ops[0]);
+    }
+  });
+  res.json({
+    message: 'New Quote Added',
+  });
+});
 
 //?DELETE /quotes/:id - This endpoint allows users to delete a quote from the database using its ID. It can be helpful if you want to provide functionality for removing quotes that are no longer relevant or deemed inappropriate.
 
