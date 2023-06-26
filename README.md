@@ -51,6 +51,7 @@ The Quote API provides the following endpoints:
 - **GET /quote/:field**: Fetches a random quote based on the specified field.
 - **GET /quotes**: Fetches all quotes present in the database.
 - **GET /quotes/:field**: Fetches all quotes that correspond to the specified field.
+- **GET /quotes/n/:number**: - This endpoint fetches specified number of documents (n)
 
 - **POST /quote**: Creates a quote in the database.
 
@@ -85,6 +86,10 @@ Send a POST request to `/quotes` with below input and it will create the documen
 "field": "Example field"
 }
 ```
+
+#### Get specified number of quotes
+
+Send a GET request to `/quotes/n/:number` to retrieve the number of quotes.
 
 ## Contribution
 

@@ -98,10 +98,14 @@ app.post('/quote', (req, res) => {
     message: 'New Quote Added',
   });
 });
+//?GET /quotes/n/:number - This endpoint fetches specified number of documents (n)
+app.get('/quotes/n/:number', async (req, res) => {
+  const { number } = req.params;
 
-//?DELETE /quotes/:id - This endpoint allows users to delete a quote from the database using its ID. It can be helpful if you want to provide functionality for removing quotes that are no longer relevant or deemed inappropriate.
-
-//?PUT /quotes/:id - This endpoint enables users to update an existing quote by its ID. It can be useful if you want to allow users or administrators to edit the content, author, or other details of a quote.
+  const getAllQuotesWithLimit = quotes.find().limit(Number(number));
+  const allQuotes = await getAllQuotesWithLimit.toArray();
+  res.json(allQuotes);
+});
 
 //?GET /quotes/search?q=searchTerm - This endpoint allows users to search for quotes based on a specific keyword or search term. It can be useful for users who want to find quotes related to a particular topic or theme.
 
